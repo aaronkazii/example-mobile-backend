@@ -242,7 +242,7 @@ post '/create_payment_intent' do
     :intent => payment_intent.id,
     :secret => payment_intent.client_secret,
     :status => payment_intent.status,
-    :test => Integer(payload[:sub])
+    :test => (payload[:@sub])
     
   }.to_json
 end

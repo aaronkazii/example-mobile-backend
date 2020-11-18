@@ -217,7 +217,6 @@ post '/create_payment_intent' do
   end
 
   # Calculate how much to charge the customer
-  print(payload[:sub])
   amount = 2099
 
   begin
@@ -242,7 +241,8 @@ post '/create_payment_intent' do
   return {
     :intent => payment_intent.id,
     :secret => payment_intent.client_secret,
-    :status => payment_intent.status
+    :status => payment_intent.status,
+    :test => payload[:sub]
   }.to_json
 end
 

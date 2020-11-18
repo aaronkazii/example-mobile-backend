@@ -217,7 +217,7 @@ post '/create_payment_intent' do
   end
 
   # Calculate how much to charge the customer
-  amount = params[:sub].to_i
+  amount = 2099
 
   begin
     payment_intent = Stripe::PaymentIntent.create(
@@ -242,7 +242,8 @@ post '/create_payment_intent' do
     :intent => payment_intent.id,
     :secret => payment_intent.client_secret,
     :status => payment_intent.status,
-    :test => amount
+    :test => Integer(payload[:sub])
+    
   }.to_json
 end
 

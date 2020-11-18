@@ -222,7 +222,7 @@ post '/create_payment_intent' do
   begin
     payment_intent = Stripe::PaymentIntent.create(
       :amount => amount,
-      :currency => currency_for_country(payload[:country]),
+      :currency => 'sgd',
       :customer => payload[:customer_id] || @customer.id,
       :description => "Example PaymentIntent",
       :capture_method => ENV['CAPTURE_METHOD'] == "manual" ? "manual" : "automatic",

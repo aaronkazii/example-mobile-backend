@@ -217,6 +217,7 @@ post '/create_payment_intent' do
   end
 
   # Calculate how much to charge the customer
+  print(payload[:sub])
   amount = 2099
 
   begin

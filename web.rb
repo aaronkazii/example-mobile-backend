@@ -217,7 +217,7 @@ post '/create_payment_intent' do
   end
 
   # Calculate how much to charge the customer
-  amount = payload[:sub].to_f
+  amount = 2099
 
   begin
     payment_intent = Stripe::PaymentIntent.create(
